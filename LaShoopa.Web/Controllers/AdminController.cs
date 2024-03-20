@@ -43,7 +43,7 @@ namespace LaShoopa.Web.Controllers
 			}
 			return View();
 		}
-		
+
 		public async Task<IActionResult> DeleteProduct(int productId)
 		{
 			var responce = await _productService.GetProductByIdAsync<ResponceDTO>(productId);
@@ -71,28 +71,31 @@ namespace LaShoopa.Web.Controllers
 			return View(product);
 		}
 
-		/*public async Task<IActionResult> UpdateProduct(int productId)
+		public async Task<IActionResult> UpdateProduct(int productId)
 		{
 			var responce = await _productService.GetProductByIdAsync<ResponceDTO>(productId);
 
-			if(responce != null && responce.IsSuccess)
-				return View(responce);
+			if (responce != null && responce.IsSuccess)
+			{
+				ProductDTO model = JsonConvert.DeserializeObject<ProductDTO>(Convert.ToString(responce.Result));
+				return View(model);
+			}
 
 			return View();
 		}
 
-		[HttpDelete]
+		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> UpdateProduct()
+		public async Task<IActionResult> UpdateProduct(ProductDTO product)
 		{
 			if (ModelState.IsValid)
 			{
-				var responce = await _productService.DeleteProductAsync<ResponceDTO>(3);
+				var responce = await _productService.UpadateProductAsync<ResponceDTO>(product);
 
 				if (responce != null && responce.IsSuccess)
 					return RedirectToAction(nameof(Index));
 			}
 			return View();
-		}*/
+		}
 	}
 }
