@@ -1,0 +1,30 @@
+﻿@model LaShoopa.Web.Models.DTOs.ProductDTO
+
+<h1>Delete product</h1>
+<br>
+<div class="container">
+	<form asp-controller="Admin" asp-action="DeleteProduct" method="post" class="row g-3">
+		<input type="text" asp-for="Id" class="form-control" disabled>
+		<div class="w-50">
+			<div class="mb-3 col-auto">
+				<label class="form-label">Name</label>
+				<input type="text" asp-for="Name" class="form-control" disabled>
+			</div>
+			<div class="mb-3 col-auto">
+				<label class="form-label">Price</label>
+				<input type="number" asp-for="Price" class="form-control" disabled>
+			</div>
+			<div class="mb-3 col-auto">
+				<label class="form-label">Description</label>
+				<input type="text" asp-for="Description" class="form-control" disabled>
+			</div>
+			<div class="mb-3 col-auto">
+				<label class="form-label">Image URL</label>
+				<input type="text" asp-for="ImageUrl" class="form-control" disabled>
+			</div>
+			<div class="mb-3 col-auto">
+				<button class="btn btn-primary" type="submit">Delete</button>
+			</div>
+		</div>
+	</form>
+</div>

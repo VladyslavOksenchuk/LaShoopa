@@ -1,0 +1,29 @@
+﻿@model LaShoopa.Web.Models.DTOs.ProductDTO
+
+<h1>Create product</h1>
+<br>
+<div class="container">
+	<form asp-controller="Admin" asp-action="CreateProduct" method="post" class="row g-3">
+		<div class="w-50">
+			<div class="mb-3 col-auto">
+				<label class="form-label">Name</label>
+				<input type="text" asp-for="Name" class="form-control">
+			</div>
+			<div class="mb-3 col-auto">
+				<label class="form-label">Price</label>
+				<input type="number" asp-for="Price" class="form-control">
+			</div>
+			<div class="mb-3 col-auto">
+				<label class="form-label">Description</label>
+				<input type="text" asp-for="Description" class="form-control">
+			</div>
+			<div class="mb-3 col-auto">
+				<label class="form-label">Image URL</label>
+				<input type="text" asp-for="ImageUrl" class="form-control">
+			</div>
+			<div class="mb-3 col-auto">
+				<button class="btn btn-primary" type="submit">Create</button>
+			</div>
+		</div>
+	</form>
+</div>
